@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  flyway:
+    enabled: false
+
+  data:
+    redis:
+      url: redis://localhost:6379
+
+app:
+  jwt:
+    secret: testSecretKeyNeedsToBeAtLeast32CharsLong!!
+    expire-hours: 1
+  storage:
+    endpoint: http://localhost:9000
+    access-key: testkey
+    secret-key: testsecret
+    bucket-videos: test-videos
+    bucket-audios: test-audios
+    public-url-base: http://localhost:9000
+  openai:
+    api-key: sk-test-placeholder
+    base-url: https://api.openai.com/v1
+  cors:
+    allowed-origins: http://localhost:5173
