@@ -1,5 +1,8 @@
 # English Learning Platform
 
+[![Backend CI](https://github.com/NguyenAnhTuM10/englishapp/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/NguyenAnhTuM10/englishapp/actions/workflows/backend-ci.yml)
+[![Frontend CI](https://github.com/NguyenAnhTuM10/englishapp/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/NguyenAnhTuM10/englishapp/actions/workflows/frontend-ci.yml)
+
 A web application for learning English through short video clips, focusing on **Listening** and **Speaking** skills with AI assistance.
 
 Users pick a 30–60 second video and work through 7 guided steps: Warmup Vocab → Listen → Phrase Practice → Shadow → **Retell** (AI-powered) → Speak → Quick Review. The standout feature is the **AI Retelling Coach** which evaluates how well a user retells a video based on key points, vocabulary, grammar, and a model answer.
@@ -63,6 +66,19 @@ npm run dev
 | Swagger UI | http://localhost:8080/swagger-ui.html | — |
 | MinIO Console | http://localhost:9001 | minioadmin / minioadmin |
 | PostgreSQL | localhost:5432 | englishapp / secret |
+
+---
+
+## Continuous Integration
+
+Two GitHub Actions workflows run automatically on push and pull requests to `main`:
+
+| Workflow | Triggers on | Steps |
+|----------|-------------|-------|
+| **Backend CI** | `backend/**` changes | Checkout → JDK 21 (Temurin) → Gradle cache → `./gradlew build` (includes tests) |
+| **Frontend CI** | `frontend/**` changes | Checkout → Node 20 → `npm ci` → lint → build → `vitest run` |
+
+CI badges are shown at the top of this file. They become active once the workflows run on GitHub.
 
 ---
 

@@ -1,6 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import { apiClient } from '@/shared/api/client';
 
 interface HealthResponse {
@@ -26,9 +24,6 @@ export function HomePage() {
         {isError && <span>Backend: not reachable</span>}
         {data && <span>Backend status: {data.status}</span>}
       </div>
-      <Link to="/demo">
-        <Button variant="outline">Full-Stack Demo →</Button>
-      </Link>
     </div>
   );
 }
